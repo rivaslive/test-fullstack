@@ -1,0 +1,15 @@
+.vs
+.idea
+
+node_modules
+*/node_modules
+**/node_modules
+yarn.lock
+*/yarn.lock
+**/yarn.lock
+.env
+*/.env
+**/.env
+.DS_Store
+*/.DS_Store
+**/.DS_Store
