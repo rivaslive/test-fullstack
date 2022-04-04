@@ -1,0 +1,119 @@
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/Inter/Inter-Black.ttf") format("opentype");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/Inter/Inter-ExtraBold.ttf") format("opentype");
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/Inter/Inter-Bold.ttf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/Inter/Inter-SemiBold.ttf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/Inter/Inter-Medium.ttf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/Inter/Inter-Regular.ttf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/Inter/Inter-Light.ttf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/Inter/Inter-ExtraLight.ttf") format("opentype");
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/Inter/Inter-Thin.ttf") format("opentype");
+  font-weight: 100;
+  font-style: normal;
+}
+
+*, html, body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+  -webkit-tap-highlight-color: transparent;
+
+  &:focus-visible {
+    outline: none;
+  }
+
+  &::selection {
+    -webkit-text-fill-color: white;
+    background-color: #461491;
+  }
+}
+
+*, ::before, ::after {
+  font-family: "Inter", sans-serif;
+  box-sizing: border-box;
+  text-rendering: geometricprecision;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background-color: black;
+  color: white;
+}
+
+.app-overlay-modal {
+  opacity: 1;
+  transition: background 0.35s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+  backdrop-filter: saturate(180%) blur(20px);
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.react-responsive-modal-container {
+  max-width: 100%;
+  padding: 20px;
+
+  div.app-modal {
+    max-width: 100%;
+    background: #222222;
+    border-radius: 14px;
+    padding-top: 40px;
+    margin: 0;
+
+    .react-responsive-modal-closeButton {
+      color: #666666;
+
+      svg {
+        fill: currentColor;
+      }
+    }
+  }
+}
