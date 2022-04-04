@@ -21,7 +21,7 @@ function RequireAuth({children}: { children: JSX.Element }) {
   const location = useLocation();
 
   if (!user && !loading) {
-    return <Navigate to={ROUTES.LOGIN} state={{from: location}} replace/>;
+    return <Navigate to={ROUTES.HOME} state={{from: location}} replace/>;
   }
 
   if (user?.role !== 'librarian' && !loading) {
