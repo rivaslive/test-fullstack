@@ -48,6 +48,7 @@ const RequestBookList = ({ items, refetchData }: BookProps) => {
   const onClickCard = (item: RequestBookItemProps) => {
     if (item) {
       setItem(item);
+      setIdItem(item?.id);
       toggleModal();
     }
   };

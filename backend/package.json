@@ -1,6 +1,6 @@
 {
   "name": "ts-api-rest",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Api created by create-rivas-node",
   "main": "src/main.ts",
   "author": "rivaslive",
@@ -9,7 +9,7 @@
   "scripts": {
     "dev": "nodemon -r ts-node --esm src/main.ts",
     "build": "tsc",
-    "start": "node dist/main.js",
+    "start": "node ./dist/main.js",
     "lint": "tsc --pretty --noEmit && eslint .",
     "lint:fix": "eslint . --fix",
     "format:check": "prettier --check .",
