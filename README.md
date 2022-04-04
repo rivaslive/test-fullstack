@@ -35,6 +35,10 @@ npm run dev
 
 Now you can access the server at `http://localhost:8080`.
 
+## Documentation
+
+The documentation API can retrieve it in postman with the export file `API_DOCUMENTAION.postman_collection.json`.
+
 **NOTE 1:**
 
 If Server not run the first time, you need to restart the server, This happens because sequilize does not generate the models yet.
