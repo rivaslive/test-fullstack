@@ -19,8 +19,12 @@ import {ROUTES} from './paths';
 function RequireAuth({children}: { children: JSX.Element }) {
   const {user, loading} = useAuth();
   const location = useLocation();
-  // @ts-ignore
-  if ((!user || user?.role !== 'librarian') && !loading) {
+
+  if (!user && !loading) {
+    return <Navigate to={ROUTES.LOGIN} state={{from: location}} replace/>;
+  }
+
+  if (user?.role !== 'librarian' && !loading) {
     return <Navigate to={ROUTES.LOGIN} state={{from: location}} replace/>;
   }
 
