@@ -16,7 +16,7 @@ import {useAuth} from 'context/auth';
 
 import {ROUTES} from './paths';
 
-function RequireAuth({children}: { children: JSX.Element }) {
+function RequireAuth({children, isAdmin}: { children: JSX.Element, isAdmin?: boolean }) {
   const {user, loading} = useAuth();
   const location = useLocation();
 
@@ -24,7 +24,7 @@ function RequireAuth({children}: { children: JSX.Element }) {
     return <Navigate to={ROUTES.LOGIN} state={{from: location}} replace/>;
   }
 
-  if (user?.role !== 'librarian' && !loading) {
+  if (user?.role !== 'librarian' && !loading && isAdmin) {
     return <Navigate to={ROUTES.LOGIN} state={{from: location}} replace/>;
   }
 
@@ -65,7 +65,7 @@ const Routes = () => {
       <Route
         path={ROUTES.USERS}
         element={
-          <RequireAuth>
+          <RequireAuth isAdmin>
             <UsersPage/>
           </RequireAuth>
         }
