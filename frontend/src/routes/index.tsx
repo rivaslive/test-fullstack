@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import {useEffect} from 'react';
 import {
   Routes as RoutesReact,
   Route,
@@ -12,16 +12,16 @@ import BooksPage from 'pages/home';
 import NotFoundPage from 'pages/404';
 import UsersPage from 'pages/users';
 import RequestBooksPage from 'pages/requestBooks';
-import { useAuth } from 'context/auth';
+import {useAuth} from 'context/auth';
 
-import { ROUTES } from './paths';
+import {ROUTES} from './paths';
 
-function RequireAuth({ children }: { children: JSX.Element }) {
-  const { user, loading } = useAuth();
+function RequireAuth({children}: { children: JSX.Element }) {
+  const {user, loading} = useAuth();
   const location = useLocation();
   // @ts-ignore
-  if (!user && !loading && user?.role !== 'librarian') {
-    return <Navigate to={ROUTES.LOGIN} state={{ from: location }} replace />;
+  if ((!user || user?.role !== 'librarian') && !loading) {
+    return <Navigate to={ROUTES.LOGIN} state={{from: location}} replace/>;
   }
 
   return children;
@@ -31,7 +31,7 @@ const Redirect = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    navigate(ROUTES.NOT_FOUND, { replace: true });
+    navigate(ROUTES.NOT_FOUND, {replace: true});
   }, [navigate]);
 
   return null;
@@ -40,13 +40,13 @@ const Redirect = () => {
 const Routes = () => {
   return (
     <RoutesReact>
-      <Route path={ROUTES.NOT_FOUND} element={<NotFoundPage />} />
-      <Route path={ROUTES.LOGIN} element={<LoginPage />} />
+      <Route path={ROUTES.NOT_FOUND} element={<NotFoundPage/>}/>
+      <Route path={ROUTES.LOGIN} element={<LoginPage/>}/>
       <Route
         path={ROUTES.HOME}
         element={
           <RequireAuth>
-            <BooksPage />
+            <BooksPage/>
           </RequireAuth>
         }
       />
@@ -54,7 +54,7 @@ const Routes = () => {
         path={ROUTES.REQUEST}
         element={
           <RequireAuth>
-            <RequestBooksPage />
+            <RequestBooksPage/>
           </RequireAuth>
         }
       />
@@ -62,11 +62,11 @@ const Routes = () => {
         path={ROUTES.USERS}
         element={
           <RequireAuth>
-            <UsersPage />
+            <UsersPage/>
           </RequireAuth>
         }
       />
-      <Route path="*" element={<Redirect />} />
+      <Route path="*" element={<Redirect/>}/>
     </RoutesReact>
   );
 };
