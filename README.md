@@ -78,6 +78,14 @@ npm run dev
 
 Now you can access the server at `http://localhost:3000`.
 
+## Preview
+
+![Drag Racing](image-admin-1.png)
+
+![Drag Racing](image-admin-2.png)
+
+![Drag Racing](image-student-1.png)
+
 ### Credits
 
 [Portfolio](https://kevin-rivas.vercel.app)
